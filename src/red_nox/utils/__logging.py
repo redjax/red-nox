@@ -3,11 +3,16 @@ from __future__ import annotations
 import logging
 import logging.config
 
+from .__methods import detect_container_env
+
+CONTAINER_ENV: bool = detect_container_env()
+
+
 def setup_nox_logging(
     level_name: str = "DEBUG",
-    nox_level_name: str = "WARNING",
+    nox_level_name: str = None,
     disable_loggers: list[str] | None = [],
-    container_env: bool = False,
+    container_env: bool = CONTAINER_ENV,
 ) -> None:
     """Configure a logger for the Nox module.
 
@@ -20,6 +25,10 @@ def setup_nox_logging(
     ## If container environment detected, default to logging.DEBUG
     if container_env:
         level_name: str = "DEBUG"
+        nox_level_name: str = "DEBUG"
+    else:
+        if nox_level_name is None:
+            nox_level_name: str = "WARNING"
 
     logging_config: dict = {
         "version": 1,

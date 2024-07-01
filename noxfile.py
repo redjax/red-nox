@@ -18,4 +18,6 @@ nox.options.error_on_external_run = False
 nox.options.error_on_missing_interpreters = False
 # nox.options.report = True
 
-CONTAINER_ENV: bool = red_nox.utils.setup_nox_logging()
+CONTAINER_ENV: bool = red_nox.utils.detect_container_env()
+
+red_nox.utils.setup_nox_logging()
