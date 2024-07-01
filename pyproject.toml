@@ -1,0 +1,25 @@
+[project]
+name = "red-nox"
+version = "0.1.0"
+description = "Utilities & pre-defined sessions for Nox."
+authors = [
+    {name = "", email = ""},
+]
+dependencies = []
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "nox>=2024.4.15",
+    "ruff>=0.5.0",
+]
