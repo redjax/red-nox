@@ -7,8 +7,10 @@ log = logging.getLogger("red_nox.sessions.debug")
 import platform
 
 from red_nox.vars import DEFAULT_PYTHON, PY_VER_TUPLE
+from red_nox.utils import detect_container_env
 
 import nox
+
 
 @nox.session(name="print-python", tags=["ext", "debug"])
 def debug_python_ver(session: nox.Session):
@@ -25,6 +27,7 @@ def debug_environment(session: nox.Session):
     """Nox session to debug platform information detected from the session."""
     log.info("Printing platform info")
 
+    _container_env = detect_container_env()
     _uname = platform.uname()
     _system = platform.system()
     _node = platform.node()
@@ -42,6 +45,7 @@ def debug_environment(session: nox.Session):
     print("")
 
     print("[HOST]")
+    print(f"Container environment: {_container_env}")
     print(f"Uname: {_uname}")
     print(f"System: {_system}")
     print(f"Node: {_node}")
