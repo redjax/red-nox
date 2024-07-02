@@ -12,7 +12,6 @@ from red_nox.vars import DEFAULT_PYTHON, PY_VER_TUPLE
 
 import nox
 
-
 def _return_host_msg(include_header: bool = False, header: str = "[HOST]") -> str:
     _container_env: bool = detect_container_env()
     _uname: platform.uname_result = platform.uname()

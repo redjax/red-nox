@@ -2,4 +2,4 @@
 
 from __future__ import annotations
 
-from . import code_check, debug, pre_commit, git
+from . import code_check, debug, git, pre_commit
