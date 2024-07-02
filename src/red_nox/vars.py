@@ -9,3 +9,14 @@ DEFAULT_PYTHON: str = f"{PY_VER_TUPLE[0]}.{PY_VER_TUPLE[1]}"
 
 ## Default paths to lint
 DEFAULT_LINT_PATHS: list[str] = ["src", "tests"]
+
+## Default logging message/date formats
+DEFAULT_NOX_LOGGING_FMT: str = (
+    "[NOX] [%(asctime)s] [%(levelname)s] [%(name)s]: %(message)s"
+)
+DEFAULT_NOX_LOGGING_DATEFMT: str = "%Y-%m-%D %H:%M:%S"
+# DEFAULT_RED_NOX_LOGGING_FMT: str = "[RED-NOX] [%(levelname)s] [%(name)s]: %(message)s"
+DEFAULT_RED_NOX_LOGGING_FMT: str = (
+    "[red_nox] | %(levelname)s | (%(name)s.%(funcName)s:%(lineno)d) > %(message)s"
+)
+DEFAULT_RED_NOX_LOGGING_DATEFMT: str = "%Y-%m-%D %H:%M:%S"

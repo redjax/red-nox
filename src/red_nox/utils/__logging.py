@@ -3,11 +3,27 @@ from __future__ import annotations
 import logging
 import logging.config
 
+from red_nox.vars import (
+    DEFAULT_NOX_LOGGING_DATEFMT,
+    DEFAULT_NOX_LOGGING_FMT,
+    DEFAULT_RED_NOX_LOGGING_DATEFMT,
+    DEFAULT_RED_NOX_LOGGING_FMT,
+)
+
+from .__methods import detect_container_env
+
+CONTAINER_ENV: bool = detect_container_env()
+
+
 def setup_nox_logging(
     level_name: str = "DEBUG",
-    nox_level_name: str = "WARNING",
+    nox_level_name: str = None,
+    nox_fmt: str = DEFAULT_NOX_LOGGING_FMT,
+    nox_datefmt: str = DEFAULT_NOX_LOGGING_DATEFMT,
+    red_nox_fmt: str = DEFAULT_RED_NOX_LOGGING_FMT,
+    red_nox_datefmt: str = DEFAULT_RED_NOX_LOGGING_DATEFMT,
     disable_loggers: list[str] | None = [],
-    container_env: bool = False,
+    container_env: bool = CONTAINER_ENV,
 ) -> None:
     """Configure a logger for the Nox module.
 
@@ -20,6 +36,10 @@ def setup_nox_logging(
     ## If container environment detected, default to logging.DEBUG
     if container_env:
         level_name: str = "DEBUG"
+        nox_level_name: str = "DEBUG"
+    else:
+        if nox_level_name is None:
+            nox_level_name: str = "WARNING"
 
     logging_config: dict = {
         "version": 1,
@@ -52,12 +72,12 @@ def setup_nox_logging(
         },
         "formatters": {
             "nox": {
-                "format": "[NOX] [%(asctime)s] [%(levelname)s] [%(name)s]: %(message)s",
-                "datefmt": "%Y-%m-%D %H:%M:%S",
+                "format": nox_fmt,
+                "datefmt": nox_datefmt,
             },
             "red_nox": {
-                "format": "[RED-NOX] [%(asctime)s] [%(levelname)s] [%(name)s]: %(message)s",
-                "datefmt": "%Y-%m-%D %H:%M:%S",
+                "format": red_nox_fmt,
+                "datefmt": red_nox_datefmt,
             },
         },
     }
