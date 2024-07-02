@@ -1,3 +1,5 @@
+"""Utilities & helpers for `red_nox`."""
+
 from __future__ import annotations
 
 from .__logging import setup_nox_logging

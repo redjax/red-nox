@@ -3,6 +3,7 @@ from __future__ import annotations
 import logging
 
 log = logging.getLogger("red_nox")
+log.setLevel("DEBUG")
 
 import platform
 import sys
@@ -23,5 +24,3 @@ nox.options.error_on_missing_interpreters = False
 # nox.options.report = True
 
 CONTAINER_ENV: bool = red_nox.utils.detect_container_env()
-
-

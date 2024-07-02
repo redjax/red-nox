@@ -11,7 +11,9 @@ from red_nox.vars import DEFAULT_LINT_PATHS, DEFAULT_PYTHON, PY_VER_TUPLE
 import nox
 
 @nox.session(python=[DEFAULT_PYTHON], name="ruff-lint", tags=["ext", "clean", "lint"])
-def run_linter(session: nox.Session, lint_paths: list[str] = DEFAULT_LINT_PATHS):
+def run_linter(
+    session: nox.Session, lint_paths: list[str] = DEFAULT_LINT_PATHS
+) -> None:
     """Nox session to run Ruff code linting."""
     if not check_path_exists(p="ruff.toml"):
         return

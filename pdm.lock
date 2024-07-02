@@ -5,7 +5,7 @@
 groups = ["default", "dev", "git"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:e20b407d7cd777a102ad9dcdabd66c2b23787cf81ca5b6294bb42c19bf1709c3"
+content_hash = "sha256:ec52e5c4bc63d563429e7a0922af0d242a02047fce1a40520bfc310a90b5f32a"
 
 [[package]]
 name = "argcomplete"
@@ -70,7 +70,7 @@ name = "gitdb"
 version = "4.0.11"
 requires_python = ">=3.7"
 summary = "Git Object Database"
-groups = ["git"]
+groups = ["dev", "git"]
 dependencies = [
     "smmap<6,>=3.0.1",
 ]
@@ -84,7 +84,7 @@ name = "gitpython"
 version = "3.1.43"
 requires_python = ">=3.7"
 summary = "GitPython is a Python library used to interact with Git repositories"
-groups = ["git"]
+groups = ["dev", "git"]
 dependencies = [
     "gitdb<5,>=4.0.1",
 ]
@@ -164,7 +164,7 @@ name = "smmap"
 version = "5.0.1"
 requires_python = ">=3.7"
 summary = "A pure Python implementation of a sliding window memory map manager"
-groups = ["git"]
+groups = ["dev", "git"]
 files = [
     {file = "smmap-5.0.1-py3-none-any.whl", hash = "sha256:e6d8668fa5f93e706934a62d7b4db19c8d9eb8cf2adbb75ef1b675aa332b69da"},
     {file = "smmap-5.0.1.tar.gz", hash = "sha256:dceeb6c0028fdb6734471eb07c0cd2aae706ccaecab45965ee83f11c8d3b1f62"},

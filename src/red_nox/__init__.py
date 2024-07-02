@@ -1,7 +1,11 @@
 from __future__ import annotations
 
+import logging
+
+log = logging.getLogger("red_nox")
+
+
 from . import sessions, utils
-from .sessions import debug_environment, debug_python_ver, run_linter
 from .vars import (
     DEFAULT_LINT_PATHS,
     DEFAULT_NOX_LOGGING_DATEFMT,
