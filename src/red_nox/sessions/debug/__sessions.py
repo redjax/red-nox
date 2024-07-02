@@ -6,11 +6,10 @@ log = logging.getLogger("red_nox.sessions.debug")
 
 import platform
 
-from red_nox.vars import DEFAULT_PYTHON, PY_VER_TUPLE
 from red_nox.utils import detect_container_env
+from red_nox.vars import DEFAULT_PYTHON, PY_VER_TUPLE
 
 import nox
-
 
 @nox.session(name="print-python", tags=["ext", "debug"])
 def debug_python_ver(session: nox.Session):

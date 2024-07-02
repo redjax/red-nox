@@ -7,6 +7,10 @@ log = logging.getLogger("red_nox")
 import platform
 import sys
 
+from red_nox.utils import setup_nox_logging
+
+setup_nox_logging()
+
 import nox
 import red_nox
 from red_nox.vars import DEFAULT_PYTHON, PY_VER_TUPLE
@@ -20,4 +24,4 @@ nox.options.error_on_missing_interpreters = False
 
 CONTAINER_ENV: bool = red_nox.utils.detect_container_env()
 
-red_nox.utils.setup_nox_logging()
+
